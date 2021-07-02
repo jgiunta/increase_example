@@ -1,5 +1,9 @@
 # increase_example
 
+Docker
+
+El sistema fue desarrollado para que corra en Docker, con docker-compose y docker-sync para sincronizar los archivos en MacOS. La base del Dockerfile está basada en ruby y se utilizó MySQL como DB.
+
 docker-compose run --no-deps web rails new . --force --database=sqlite3
 docker-compose build
 docker-compose up
