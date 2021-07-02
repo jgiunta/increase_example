@@ -30,9 +30,15 @@ rails g scaffold discount discount_id:string amount:integer kind:integer payment
 
 Las rutas para la API solicitada se configuraron de la siguiente manera:
 
+- Información de los clientes:
+
 GET  /clients/:id(.:format)              clients#show {:format=>:json}
 
+- Dinero que los clientes cobraron y el dinero que van a cobrar
+
 GET  /clients/:id/payments(.:format)     clients#payments {:format=>:json}
+
+- Transacciones de los clientes
 
 GET  /clients/:id/transactions(.:format) clients#transactions {:format=>:json}
 
