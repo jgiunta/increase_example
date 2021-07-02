@@ -42,7 +42,7 @@ GET  /clients/:id/payments(.:format)     clients#payments {:format=>:json}
 
 GET  /clients/:id/transactions(.:format) clients#transactions {:format=>:json}
 
-Todo bajo un mismo controllador llamado clients el cual contiene 3 métodos para cumplir con las pautas.
+Todo bajo un mismo controllador llamado "clients", el cual contiene 3 métodos para cumplir con las pautas.
 
 # Crawler
 
