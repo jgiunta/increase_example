@@ -4,11 +4,13 @@
 
 El sistema fue desarrollado para que corra en Docker, con docker-compose y docker-sync para sincronizar los archivos en MacOS. La base del Dockerfile está basada en ruby y se utilizó MySQL como DB.
 
-docker-compose run --no-deps web rails new . --force --database=sqlite3
+Para generar la app se ejecutaron los siguientes comandos:
 
-docker-compose build
+- docker-compose run --no-deps web rails new . --force --database=mysql (se podría haber utilizado --api para solo generar los MVC necesarios)
 
-docker-compose up
+- docker-compose build
+
+- docker-compose up (éste último sirve para ejecutar la app)
 
 # Modelos, Vistas y Controladores
 
