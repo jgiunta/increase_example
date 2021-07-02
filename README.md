@@ -44,3 +44,4 @@ El crawler es un task que absorve los datos de la URL indicada y parsea deslizan
 - Inicialmente se podría proteger la API con un TOKEN OAUTH para mayor seguridad en el acceso
 - El crawler podría en vez de correr con cron y rake, hacerlo con un worker en sidekiq controlado por redis.
 - Debería implementarse un cache para las respuestas de la API utilizando memcached
+- De acuerdo al tráfico podría implementarse una réplica de la DB para enviar las consultas de lectura al slave y las escrituras al master. 
