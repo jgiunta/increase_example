@@ -1,0 +1,8 @@
+version: "2"
+options:
+    verbose: true
+cli_mode: 'auto'
+syncs:
+  app-sync5:
+    src: './'
+    sync_excludes: ['.gitignore', '.git/', 'tmp', 'log', 'README.md', 'mysql-data/', '.docker*']

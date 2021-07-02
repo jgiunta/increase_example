@@ -1,0 +1,33 @@
+# Set docker-compose version
+version: '2'
+
+services:
+  db:
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - $HOME/mysql-data:/var/lib/mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: 'increase'
+      MYSQL_PASSWORD: '12345'
+      MYSQL_ROOT_PASSWORD: '12345'
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - "3000:3000"
+    volumes:
+      - app-sync5:/app:nocopy
+    depends_on:
+      - db
+    environment:
+      MYSQL_USER: 'increase'
+      MYSQL_PASSWORD: '12345'
+      MYSQL_ROOT_PASSWORD: '12345'
+
+volumes:
+  app-sync5:
+    external: true
