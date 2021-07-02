@@ -16,7 +16,7 @@ Para generar la app se ejecutaron los siguientes comandos:
 
 MVC creados utilizando Scaffold.
 
-Se generaron 4 modelo. Clientes, pagos, transacciones y descuentos. Las transacciones y los descuentos pertenecen a un pago, mientras que los pagos pertenecen a un cliente.
+Se generaron 4 modelos. Clientes, pagos, transacciones y descuentos. Las transacciones y los descuentos pertenecen a un pago, mientras que los pagos pertenecen a un cliente.
 
 rails g scaffold client client_id:string email first_name last_name job country address zip_code phone
 
@@ -59,4 +59,12 @@ El crawler es un task que absorve los datos de la URL indicada y parsea deslizan
 - Inicialmente se podría proteger la API con un TOKEN OAUTH para mayor seguridad en el acceso
 - El crawler podría en vez de correr con cron y rake, hacerlo con un worker en sidekiq controlado por redis.
 - Debería implementarse un cache para las respuestas de la API utilizando memcached
-- De acuerdo al tráfico podría implementarse una réplica de la DB para enviar las consultas de lectura al slave y las escrituras al master. 
+- De acuerdo al tráfico podría implementarse una réplica de la DB para enviar las consultas de lectura al slave y las escrituras al master.
+- Las rutas las re estructuraría, ubicando las transacciones y descuentos detras del pago que corresponda. Por ejemplo /client/:client_id/payments/:payment_id/transactions y /client/:client_id/payments/:payment_id/discounts
+
+# Ejemplos de acceso a la API
+
+http://localhost:3000/clients/3d12c732821341ecb0c2ccf9606ae298/
+http://localhost:3000/clients/3d12c732821341ecb0c2ccf9606ae298/payments
+http://localhost:3000/clients/3d12c732821341ecb0c2ccf9606ae298/transactions
+
